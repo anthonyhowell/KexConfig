@@ -84,7 +84,7 @@ abstract class AbstractConfig implements ConfigInterface, \Serializable
 
     public function getMap()
     {
-        return [$this->getKey()->toString() => $this->getValue()];
+        return array($this->getKey()->toString() => $this->getValue());
     }
 
     public function serialize()
@@ -107,6 +107,5 @@ abstract class AbstractConfig implements ConfigInterface, \Serializable
     {
         // TODO: Implement unserialize() method.
     }
-
 
 }
