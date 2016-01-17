@@ -1,9 +1,9 @@
 {
-    "name": "pax/pax-config",
+    "name": "kex/kex-config",
     "type": "library",
     "description": "An object oriented configuration library",
     "keywords": [ "config" ],
-    "homepage": "https://github.com/anthonyhowell/PaxConfig",
+    "homepage": "https://github.com/anthonyhowell/KexConfig",
     "license": "MIT",
     "authors": [
         {
@@ -28,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Pax\\Config\\": "src/Pax/Config"
+            "Kex\\Config\\": "src/Kex/Config"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Pax\\Config\\Test\\": "tests/Pax/Config/Test"
+            "Kex\\Config\\Test\\": "tests/Kex/Config/Test"
         }
     }
 }
