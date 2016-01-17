@@ -22,38 +22,32 @@ abstract class ConfigTestCase extends \PHPUnit_Framework_TestCase
     /**
      * @return string
      */
-    abstract public function getConfigTypeClass();
+    abstract public function getNewConfig();
 
     abstract public function testValue();
 
     public function testKey()
     {
-        $configType = $this->getConfigTypeClass();
-
         /** @var \Pax\Config\Model\ConfigInterface $config */
-        $config = new $configType();
+        $config = $this->getNewConfig();
         $config->setKey(self::KEY);
         $this->assertEquals(self::KEY, $config->getKey());
     }
 
     public function testLabel()
     {
-        $configType = $this->getConfigTypeClass();
-
         /** @var \Pax\Config\Model\ConfigInterface $config */
-        $config = new $configType();
+        $config = $this->getNewConfig();
         $config->setLabel(self::LABEL);
         $this->assertEquals(self::LABEL, $config->getLabel());
     }
 
     public function testGroup()
     {
-        $configType = $this->getConfigTypeClass();
-
         $group = new ConfigGroup(self::KEY, self::LABEL);
 
         /** @var \Pax\Config\Model\ConfigInterface $config */
-        $config = new $configType();
+        $config = $this->getNewConfig();
         $config->setGroup($group);
 
         $this->assertEquals(self::KEY, $config->getGroup()->getKey());

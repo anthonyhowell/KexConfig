@@ -17,14 +17,14 @@ class StringConfigTest extends ConfigTestCase
     const VALUE = 'foo';
 
 
-    public function getConfigTypeClass()
+    public function getNewConfig()
     {
-        return StringConfig::class;
+        return new StringConfig();
     }
 
     public function testValue()
     {
-        $config = new StringConfig();
+        $config = $this->getNewConfig();
         $config->setValue(self::VALUE);
         $this->assertEquals(self::VALUE, $config->getValue());
         $this->assertTrue(is_string($config->getValue()));

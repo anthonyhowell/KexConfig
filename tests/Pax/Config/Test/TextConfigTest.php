@@ -17,14 +17,14 @@ class TextConfigTest
     const VALUE = 'foo';
 
 
-    public function getConfigTypeClass()
+    public function getNewConfig()
     {
-        return TextConfig::class;
+        return new TextConfig();
     }
 
     public function testValue()
     {
-        $config = new TextConfig();
+        $config = $this->getNewConfig();
         $config->setValue(self::VALUE);
         $this->assertEquals(self::VALUE, $config->getValue());
         $this->assertTrue(is_string($config->getValue()));

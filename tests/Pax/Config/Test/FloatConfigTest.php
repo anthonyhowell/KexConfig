@@ -17,14 +17,14 @@ class FloatConfigTest extends ConfigTestCase
     const VALUE = 5.22;
 
 
-    public function getConfigTypeClass()
+    public function getNewConfig()
     {
-        return FloatConfig::class;
+        return new FloatConfig();
     }
 
     public function testValue()
     {
-        $config = new FloatConfig();
+        $config = $this->getNewConfig();
         $config->setValue(self::VALUE);
         $this->assertEquals(self::VALUE, $config->getValue());
         $this->assertTrue(is_float($config->getValue()));

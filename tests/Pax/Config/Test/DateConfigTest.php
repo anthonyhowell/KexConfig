@@ -17,14 +17,14 @@ class DateConfigTest extends ConfigTestCase
     /**
      * {@inheritdoc}
      */
-    public function getConfigTypeClass()
+    public function getNewConfig()
     {
-        return DateConfig::class;
+        return new DateConfig();
     }
 
     public function testValue()
     {
-        $config = new DateConfig();
+        $config = $this->getNewConfig();
         $config->setValue(new \DateTime());
         $this->assertTrue($config->getValue() instanceof \DateTime);
     }

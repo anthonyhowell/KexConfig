@@ -17,14 +17,14 @@ class IntegerConfigTest extends ConfigTestCase
     const VALUE = 5;
 
 
-    public function getConfigTypeClass()
+    public function getNewConfig()
     {
-        return IntegerConfig::class;
+        return new IntegerConfig();
     }
 
     public function testValue()
     {
-        $config = new IntegerConfig();
+        $config = $this->getNewConfig();
         $config->setValue(self::VALUE);
         $this->assertEquals(self::VALUE, $config->getValue());
         $this->assertTrue(is_integer($config->getValue()));

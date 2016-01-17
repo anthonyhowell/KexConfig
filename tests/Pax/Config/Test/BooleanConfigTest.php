@@ -13,14 +13,14 @@ use Pax\Config\Model\BooleanConfig;
 class BooleanConfigTest extends ConfigTestCase
 {
 
-    public function getConfigTypeClass()
+    public function getNewConfig()
     {
-        return BooleanConfig::class;
+        return new BooleanConfig();
     }
 
     public function testValue()
     {
-        $config = new BooleanConfig();
+        $config = $this->getNewConfig();
         $config->setValue(true);
         $this->assertEquals($config->getValue(), true);
     }
