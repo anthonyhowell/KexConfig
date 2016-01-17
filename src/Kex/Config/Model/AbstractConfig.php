@@ -94,13 +94,13 @@ abstract class AbstractConfig implements ConfigInterface, \Serializable
             ? $this->getGroup()->getCode()
             : null;
 
-        return [
+        return array(
             'type'  => $class->getShortName(),
             'key'   => $this->getkey(),
             'label' => $this->getLabel(),
             'group' => $group,
             'value' => $this->getValue()
-        ];
+        );
     }
 
     public function unserialize($serialized)
