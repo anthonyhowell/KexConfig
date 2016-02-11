@@ -2,11 +2,10 @@
 
 namespace Kex\Config\Test;
 
-use Kex\Config\Model\BooleanConfig;
-use Kex\Config\Model\ConfigGroup;
+use PHPUnit_Framework_TestCase;
 
 
-abstract class ConfigTestCase extends \PHPUnit_Framework_TestCase
+abstract class ConfigTestCase extends PHPUnit_Framework_TestCase
 {
 
     const KEY   = 'key';
@@ -34,18 +33,6 @@ abstract class ConfigTestCase extends \PHPUnit_Framework_TestCase
         $config = $this->getNewConfig();
         $config->setLabel(self::LABEL);
         $this->assertEquals(self::LABEL, $config->getLabel());
-    }
-
-    public function testGroup()
-    {
-        $group = new ConfigGroup(self::KEY, self::LABEL);
-
-        /** @var \Kex\Config\Model\ConfigInterface $config */
-        $config = $this->getNewConfig();
-        $config->setGroup($group);
-
-        $this->assertEquals(self::KEY, $config->getGroup()->getKey());
-        $this->assertEquals(self::LABEL, $config->getGroup()->getLabel());
     }
 
 }

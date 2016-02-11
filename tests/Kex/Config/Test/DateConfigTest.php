@@ -2,6 +2,7 @@
 
 namespace Kex\Config\Test;
 
+use DateTime;
 use Kex\Config\Model\DateConfig;
 
 
@@ -25,8 +26,8 @@ class DateConfigTest extends ConfigTestCase
     public function testValue()
     {
         $config = $this->getNewConfig();
-        $config->setValue(new \DateTime());
-        $this->assertTrue($config->getValue() instanceof \DateTime);
+        $config->setValue(new DateTime());
+        $this->assertTrue($config->getValue() instanceof DateTime);
     }
 
 }
