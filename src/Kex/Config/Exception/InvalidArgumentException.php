@@ -3,8 +3,19 @@
 namespace Kex\Config\Exception;
 
 
+/**
+ * Class InvalidArgumentException
+ * @package Kex\Config\Exception
+ *
+ * @author Anthony Howell <anthonyhowell@gmail.com>
+ */
 class InvalidArgumentException extends \InvalidArgumentException
 {
+
+    public static function configRequired()
+    {
+        return new self('$value must be an instance of ConfigInterface');
+    }
 
     public static function floatRequired()
     {
