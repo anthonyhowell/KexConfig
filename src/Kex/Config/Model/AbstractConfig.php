@@ -2,6 +2,8 @@
 
 namespace Kex\Config\Model;
 
+use JsonSerializable;
+use Serializable;
 
 
 /**
@@ -10,21 +12,30 @@ namespace Kex\Config\Model;
  *
  * @author Anthony Howell <anthonyhowell@gmail.com>
  */
-abstract class AbstractConfig implements ConfigInterface, \Serializable
+abstract class AbstractConfig implements ConfigInterface, Serializable, JsonSerializable
 {
 
-    protected $group;
+    /**
+     * @var string
+     */
     protected $key;
+
+    /**
+     * @var string
+     */
     protected $label;
-    protected $enum;
+
+    /**
+     * @var
+     */
     protected $value;
 
-    public function __construct($key = null, $label = null, $value = null, EnumConfig $enum = null)
+
+    public function __construct($key = null, $label = null, $value = null)
     {
         if (!is_null($label)) $this->setLabel($label);
         if (!is_null($key))   $this->setKey($key);
         if (!is_null($value)) $this->setValue($value);
-        if (!is_null($enum))  $this->setEnum($enum);
     }
 
     public function setKey($key)
@@ -60,52 +71,36 @@ abstract class AbstractConfig implements ConfigInterface, \Serializable
         return $this->value;
     }
 
-    public function setGroup(ConfigGroup $group)
-    {
-        $this->group = $group;
-        return $this;
-    }
-
-    public function getGroup()
-    {
-        return $this->group;
-    }
-
-    public function setEnum(EnumConfig $enum)
-    {
-        $this->enum = $enum;
-        return $this;
-    }
-
-    public function getEnum()
-    {
-        return $this->enum;
-    }
-
-    public function getMap()
-    {
-        return array($this->getKey()->toString() => $this->getValue());
-    }
-
     public function serialize()
     {
-        $class = new \ReflectionClass(get_class($this));
-        $group = ($this->getGroup() !== null)
-            ? $this->getGroup()->getCode()
-            : null;
-
-        return array(
-            'type'  => $class->getShortName(),
-            'key'   => $this->getkey(),
-            'label' => $this->getLabel(),
-            'group' => $group,
-            'value' => $this->getValue()
-        );
+        return $this->toArray();
     }
 
     public function unserialize($serialized)
     {
         // TODO: Implement unserialize() method.
     }
+
+    public function jsonSerialize()
+    {
+        return $this->toArray();
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return array
+     */
+    public function toArray()
+    {
+        $class = new \ReflectionClass(get_class($this));
+
+        return array(
+            'type'  => $class->getShortName(),
+            'key'   => $this->getkey(),
+            'label' => $this->getLabel(),
+            'value' => $this->getValue()
+        );
+    }
+
 
 }

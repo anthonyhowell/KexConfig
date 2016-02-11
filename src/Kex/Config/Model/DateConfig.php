@@ -34,4 +34,18 @@ class DateConfig extends AbstractConfig
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     * @return array
+     */
+    public function toArray()
+    {
+        return array(
+            'type'  => 'date',
+            'key'   => $this->getkey(),
+            'label' => $this->getLabel(),
+            'value' => $this->getValue()->format('U')
+        );
+    }
+
 }

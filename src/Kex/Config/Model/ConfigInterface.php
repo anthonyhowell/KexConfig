@@ -13,21 +13,14 @@ interface ConfigInterface
 {
 
     /**
-     * @param ConfigGroup $group
-     * @return ConfigInterface
-     */
-    public function setGroup(ConfigGroup $group);
-
-    /**
-     * @return ConfigGroup
-     */
-    public function getGroup();
-
-    /**
      * @param $label
      * @return ConfigInterface
      */
     public function setLabel($label);
+
+    /**
+     * @return string
+     */
     public function getLabel();
 
     /**
@@ -35,6 +28,10 @@ interface ConfigInterface
      * @return ConfigInterface
      */
     public function setKey($label);
+
+    /**
+     * @return string
+     */
     public function getKey();
 
     /**
@@ -42,8 +39,15 @@ interface ConfigInterface
      * @return ConfigInterface
      */
     public function setValue($value);
+
+    /**
+     * @return mixed
+     */
     public function getValue();
 
-    public function getMap();
+    /**
+     * @return array
+     */
+    public function toArray();
 
 }
