@@ -27,7 +27,7 @@ class CoreExtension implements ExtensionInterface
 
     public function __construct()
     {
-        $this->types = array(
+        $this->types = [
             'boolean' => function () { return new BooleanConfig(); },
             'bool'    => function () { return new BooleanConfig(); },
             'date'    => function () { return new DateConfig(); },
@@ -36,7 +36,7 @@ class CoreExtension implements ExtensionInterface
             'int'     => function () { return new IntegerConfig(); },
             'string'  => function () { return new StringConfig(); },
             'text'    => function () { return new TextConfig(); },
-        );
+        ];
     }
 
     public function handles($type)
@@ -47,16 +47,16 @@ class CoreExtension implements ExtensionInterface
     public function buildOptions(array $options)
     {
         return array_merge(
-            array(
+            [
                 'key'   => null,
                 'label' => null,
                 'value' => null
-            ),
+            ],
             $options
         );
     }
 
-    public function build($type, array $options = array(), ConfigFactory $factory)
+    public function build($type, array $options = [], ConfigFactory $factory)
     {
         $options = $this->buildOptions($options);
 

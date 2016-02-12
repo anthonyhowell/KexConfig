@@ -110,11 +110,11 @@ class FactoryTest extends PHPUnit_Framework_TestCase
     {
         $factory = new ConfigFactory();
 
-        return $factory->createConfig($type, array(
+        return $factory->createConfig($type, [
             'key'   => self::TEST_KEY,
             'label' => self::TEST_LABEL,
             'value' => $value
-        ));
+        ]);
     }
 
     private function runConfigPropertyTest(ConfigInterface $config, $value)

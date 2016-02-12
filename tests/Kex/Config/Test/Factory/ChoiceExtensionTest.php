@@ -23,7 +23,7 @@ class ChoiceExtensionTest extends PHPUnit_Framework_TestCase
     {
         $extension = $this->getExtension();
 
-        $options = $extension->buildOptions(array());
+        $options = $extension->buildOptions([]);
 
         $this->assertArrayHasKey('key',   $options);
         $this->assertArrayHasKey('label', $options);
@@ -60,7 +60,7 @@ class ChoiceExtensionTest extends PHPUnit_Framework_TestCase
     public function testSingleSelection()
     {
         /** @var \Kex\Config\Model\ChoiceConfig $config */
-        $config  = $this->createConfig(array('limit' => 1));
+        $config  = $this->createConfig(['limit' => 1]);
         $options = $config->getOptions();
         $config->select(current($options));
 
@@ -84,23 +84,21 @@ class ChoiceExtensionTest extends PHPUnit_Framework_TestCase
         }
     }
 
-    public function createConfig(array $config = array())
+    public function createConfig(array $config = [])
     {
-        $options = array();
+        $options = [];
 
         for ($i = 1; $i <= 2; $i++) {
-            $options[] = array(
+            $options[] = [
                 'type'  => 'bool',
                 'key'   => "option_{$i}",
                 'label' => "option {$i}",
                 'value' => $i & 1
-            );
+            ];
         }
 
         $config = array_merge_recursive(
-            array(
-                'options' => $options
-            ),
+            [ 'options' => $options ],
             $config
         );
 

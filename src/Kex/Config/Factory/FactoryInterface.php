@@ -12,6 +12,6 @@ namespace Kex\Config\Factory;
 interface FactoryInterface
 {
 
-    public function createConfig($type, array $options = array());
+    public function createConfig($type, array $options = []);
 
 }

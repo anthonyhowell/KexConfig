@@ -12,7 +12,7 @@ namespace Kex\Config\Factory;
 class ConfigFactory implements FactoryInterface
 {
 
-    private $extensions = array();
+    private $extensions = [];
     private $sortedExtensions;
 
     public function __construct()
@@ -39,7 +39,7 @@ class ConfigFactory implements FactoryInterface
         return $this->extensions;
     }
 
-    public function createConfig($type, array $options = array())
+    public function createConfig($type, array $options = [])
     {
         /** @var \Kex\Config\Factory\ExtensionInterface $extension */
         foreach ($this->getExtensions() as $extension) {

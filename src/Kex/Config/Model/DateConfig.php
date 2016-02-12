@@ -40,12 +40,12 @@ class DateConfig extends AbstractConfig
      */
     public function toArray()
     {
-        return array(
+        return [
             'type'  => 'date',
             'key'   => $this->getkey(),
             'label' => $this->getLabel(),
             'value' => $this->getValue()->format('U')
-        );
+        ];
     }
 
 }

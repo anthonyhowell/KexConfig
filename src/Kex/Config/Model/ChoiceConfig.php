@@ -16,7 +16,7 @@ class ChoiceConfig extends AbstractConfig implements ChoiceConfigInterface
     /**
      * @var array
      */
-    protected $options = array();
+    protected $options = [];
 
     /**
      * @var int
@@ -24,9 +24,9 @@ class ChoiceConfig extends AbstractConfig implements ChoiceConfigInterface
     protected $limit = 0;
 
 
-    public function __construct(array $options = array(), array $values = array(), $limit = 0)
+    public function __construct(array $options = [], array $values = [], $limit = 0)
     {
-        $this->value = array();
+        $this->value = [];
         
         $this->addOptions($options);
 

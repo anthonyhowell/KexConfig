@@ -21,7 +21,7 @@ class CoreExtensionTest extends PHPUnit_Framework_TestCase
     {
         $extension = $this->getExtension();
 
-        $options = $extension->buildOptions(array());
+        $options = $extension->buildOptions([]);
 
         $this->assertArrayHasKey('key',   $options);
         $this->assertArrayHasKey('label', $options);
@@ -31,7 +31,7 @@ class CoreExtensionTest extends PHPUnit_Framework_TestCase
     private function runConfigTest($type, $value)
     {
         /** @var \Kex\Config\Model\ConfigInterface $config */
-        $config = $this->createConfig($type, array('value' => $value));
+        $config = $this->createConfig($type, ['value' => $value]);
 
         $this->assertEquals(null,   $config->getKey());
         $this->assertEquals(null,   $config->getLabel());

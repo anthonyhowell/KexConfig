@@ -35,6 +35,6 @@ interface ExtensionInterface
      * @param ConfigFactory $factory
      * @return mixed
      */
-    public function build($type, array $options = array(), ConfigFactory $factory);
+    public function build($type, array $options = [], ConfigFactory $factory);
 
 }

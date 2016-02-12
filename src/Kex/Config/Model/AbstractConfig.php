@@ -94,12 +94,12 @@ abstract class AbstractConfig implements ConfigInterface, Serializable, JsonSeri
     {
         $class = new \ReflectionClass(get_class($this));
 
-        return array(
+        return [
             'type'  => $class->getShortName(),
             'key'   => $this->getkey(),
             'label' => $this->getLabel(),
             'value' => $this->getValue()
-        );
+        ];
     }
 
 

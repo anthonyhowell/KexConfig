@@ -26,32 +26,32 @@ class ChoiceExtension implements ExtensionInterface
     public function buildOptions(array $options)
     {
         if (!isset($options['options'])) {
-            $options['options'] = array();
+            $options['options'] = [];
         }
 
         $options = array_merge(
-            array(
+            [
                 'key'   => null,
                 'label' => null,
                 'value' => null,
                 'limit' => 0
-            ),
+            ],
             $options
         );
 
         if (count($options['options']) == 0) {
-            $options['options'][] = array(
+            $options['options'][] = [
                 'type'  => 'bool',
                 'key'   => null,
                 'label' => null,
                 'value' => true
-            );
+            ];
         }
 
         return $options;
     }
 
-    public function build($type, array $options = array(), ConfigFactory $factory)
+    public function build($type, array $options = [], ConfigFactory $factory)
     {
         $options = $this->buildOptions($options);
 
