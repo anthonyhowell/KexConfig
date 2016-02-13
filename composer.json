@@ -17,11 +17,6 @@
     "require-dev": {
         "phpunit/phpunit": "5.1.4"
     },
-    "suggest": {
-        "pimple/pimple": "for the built-in implementations of the menu provider and renderer provider",
-        "silex/silex": "for the integration with your silex application",
-        "twig/twig": "for the TwigRenderer and the integration with your templates"
-    },
     "autoload": {
         "psr-4": {
             "Kex\\Config\\": "src/Kex/Config"
